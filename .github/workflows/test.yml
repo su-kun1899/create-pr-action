@@ -1,4 +1,4 @@
-name: Test Action
+name: Test action
 on: pull_request
 jobs:
   test:
@@ -27,6 +27,6 @@ jobs:
         if: ${{ always() }}
         run: |
           gh pr close "${BRANCH}" || true
-          git push origin --delete "${BRANCH}" || true
+          git push origin "${BRANCH}" --delete || true
         env:
           BRANCH: ${{ steps.exercise.outputs.branch }}
